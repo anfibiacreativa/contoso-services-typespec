@@ -4,19 +4,22 @@ using TypeSpec.Http;
 
 @service({
   title: "Contoso Real Estate Listings Service",
-  version: "2023-09-06"
+  version: "2023-09-06",
 })
-@server("https://{provisionedUrl}.com",{
-  @doc("This provisioned url should come from env vars")
-  provisionedUrl?: string,
-})
+@server(
+  "https://{provisionedUrl}.com", "Contoso Azure Provisioned Url",
+  {
+    @doc("This provisioned url should come from env vars")
+    provisionedUrl?: string;
+  }
+)
 @doc("This is the Contoso Real Estate portal listings service")
 namespace ContosoRealEstate;
 
 model Listing {
   @visibility("read")
-
   id: string;
+
   title: string;
   slug: string;
   createdAt: string;
@@ -41,7 +44,6 @@ model Error {
   code: int32;
   message: string;
 }
-
 
 @route("/api/getListings")
 @tag("Listings")
