@@ -35,7 +35,6 @@ main.tsp         # TypeSpec entrypoint.
 ```
 Edit the `main.tsp` file as necessary for your definition.
 
-
 ```
 $ tsp format **/*.tsp # this will format all .tsp files in the project
 ```
@@ -48,6 +47,15 @@ $ tsp compile .
 
 (if you're in a different folder than the project root, pass the path to the compile command)
 
+## Emit the OpenAPI spec `yaml` file
+
+To emit the specification file, run
+
+```
+$ tsp compile . --emit=@typespec/openapi3
+```
+
+You should have a new folder called `tsp-output` by default, with your spec.
 
 You're all set! 🚀
 
